@@ -1,0 +1,44 @@
+Experiment:
+  Project_name: 'wandb project name'
+  Description: 'Description of this run'
+  Run_name: &Run_name 'Name of this run'
+  Run_id: 'ID of this run'
+  Group: 'Group to which this run belongs'
+
+Data:
+  Already_split: True
+  PATH: 'Path to the dataset that has already been split into training, validation, and test sets.'
+
+  DATA_TYPE: 'WISE_COLOR' # Choose input image bands. Options: DESI, DESI_COLOR, WISE, WISE_COLOR, WISE_COLOR-WISE, WISE_COLOR_PLUS
+
+  CATALOG_COLUMN: ['R-W2', 'I-W1', 'R-W1', 'I-W2', 'Z-W1', 'R-I', 'G-W2', 'Z-W2', 'G-R', 'I-Z', 'G-I', 'W12-W22', 'R-R1', 'R-Z', 'G-G1', 'Z5-W15', 'MAG_G', 'G-W1', 'I-I1', 'W13-W23', 'MAG_I', 'MAG_Z', 'I7-Z7', 'Z-Z1', 'R6-I6', 'I6-Z6', 'W11-W21', 'MAG_R', 'W21-W22', 'I8-Z8', 'R7-I7', 'Z4-W14', 'G6-R6', 'G7-R7', 'G1-R1', 'W14-W24', 'Z1-W11', 'R8-I8', 'I1-I2', 'W11-W12', 'W23-W24', 'R5-I5', 'W22-W23', 'R1-I1', 'G5-R5', 'I2-Z2', 'W24-W25', 'G8-R8', 'W1-W11', 'R2-I2', 'I5-Z5', 'G1-G2', 'W2-W21', 'W14-W15', 'R1-R2', 'I1-Z1', 'MAG_W2', 'G-Z', 'Z1-Z2', 'G4-R4', 'R4-I4', 'MAG_W1', 'Z3-W13', 'I7-I8', 'W1-W2', 'Z2-W12', 'Z5-Z6', 'I4-Z4', 'G2-R2', 'R3-R4', 'I3-Z3', 'Z7-Z8', 'R7-R8', 'G4-G5', 'G3-R3', 'W15-W25', 'W12-W13', 'W13-W14', 'R5-R6', 'I5-I6', 'G2-G3', 'Z3-Z4', 'R3-I3', 'Z6-Z7', 'I4-I5','ebv'] # 85 features chosen from PFI method
+  
+  Z_USE_DEFAULT: False
+  Z_MIN: 9.397166991220729e-07 # if Z_USE_DEFAULT==True, Minimum redshift value in the dataset to be set
+  Z_MAX: 3.8452000617980957 # if Z_USE_DEFAULT==True, Maximum redshift value in the dataset to be set
+
+  BIN_WIDTH_DEFAULT: 0.005 # Default bin width used for redshift estimation in classification approach
+
+  NBINS_MAX: 770 # Maximum number of bins used in redshift estimation in classification approach
+
+  BIN_DEFAULT: False # Whether to use the default bin setting
+  BIN_EDGES: [0.,0.5,3.85] # if BIN_DEFAULT==True, Default bin edges; should contain N_bins + 1 values
+
+  DATA_AUGMENTATION: True  # Whether to augment image data
+  DATA_EBV: True # Whether to include EBV value in Image Encoder
+  LABEL_ENCODE: True  # Whether to encode redshift values as class labels for classification
+  IMAGE_SIZE: 64 # Image size to which inputs should be resized
+
+Train:
+  BATCH_SIZE: 32 
+  EPOCH: 30
+  LEARNING_RATE: 0.0001
+  CONTINUE_TRAIN: False  # Whether to continue training from pre-trained weights
+  CONTINUE_CHECKPOINT: 'Path to pre-trained weights'
+
+
+Model:
+  MODEL_NAME: *Run_name
+  MODEL_TYPE: "Regression" # Redshift estimation approach. Options: Classification, Regression
+  ImageEncoder_Weights: 'Path to pre-trained image encoder weights'  # Use pre-trained weights for the image subnetwork
+  CatalogEncoder_Weights: 'Path to pre-trained catalog encoder weights'  # Use pre-trained weights for the catalog subnetwork
