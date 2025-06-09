@@ -69,23 +69,6 @@ def split_dataset(df,data,data_pattern,output_path):
 
     
 
-
-
-if __name__ == '__main__':
-    catalog_path = '/data/home/wsr/Workspace/dl/dr10_dataset/EmG_AGN/dataset/sv13/limit_mag/limit_mag_features.csv'
-    data_path = '/data/home/wsr/Workspace/dl/dr10_dataset/EmG_AGN/dataset/sv13/limit_mag'
-    output_path = '/data/home/wsr/Workspace/dl/Algorithm/Henghes22/data/dataset'
-    name1 = 'limit_mag'
-    
-    data_pattern = ['images1','labels1','ebv1']
-    data = []
-    
-    df = pd.read_csv(catalog_path)
-    for p in data_pattern:
-        data.append(np.load(os.path.join(data_path,f'{p}_{name1}.npy')))
-    
-    split_dataset(df,data,data_pattern,output_path)
-
    
 
     

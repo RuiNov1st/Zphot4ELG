@@ -5,12 +5,12 @@ import os
 from sklearn.utils import resample
 
 """
-Description：设置一系列条件函数对输入的数据进行限制，返回数据集和星表数据的子集，不另外生成文件，节省内存空间
+Description: A set of conditional functions is applied to filter the input data, returning subsets of both the dataset and catalog without creating additional files, thereby saving memory.
 """
 
 def filter_magnitude(df):
     """
-    将R波段按照21.5进行分割，看看两部分的效果
+    Split the R band at 21.5
     """
     print(f"before magnitude filter: {len(df)}")
     # R<=21.5
@@ -21,7 +21,7 @@ def filter_magnitude(df):
 
 def filter_lowz(df,threshold=0.5):
     """
-    将小于等于threshold部分的红移取出
+    Split the redshift at threshold
     """
     print(f"before magnitude filter: {len(df)}")
     df_lowz = df[df['z_spec']<=threshold]
@@ -31,7 +31,7 @@ def filter_lowz(df,threshold=0.5):
 
 def filter_highz(df,threshold=0.5):
     """
-    将大于threshold部分的红移取出
+    Split the redshift at threshold
     """
     print(f"before magnitude filter: {len(df)}")
     df_highz = df[df['z_spec']>threshold]
@@ -43,7 +43,7 @@ def filter_highz(df,threshold=0.5):
 
 def apply_filter(index,data,df):
     """
-    对输入数据和星表进行filter
+    Apply filtering to the input data and the catalog.
     index: filter index
     data:(images,labels,ebv,...)
     df:catalog
@@ -60,9 +60,9 @@ def apply_filter(index,data,df):
 
 def data_filter(data,df):
     """
-    接口函数
+    used in other file
+    setting filter function by yourself
     """
-    # 需要自己设定调整filter
     # filter_index = filter_magnitude(df)
     filter_index = filter_lowz(df)
     new_data,new_df = apply_filter(filter_index,data,df)

@@ -39,6 +39,6 @@ Train:
 
 Model:
   MODEL_NAME: *Run_name
-  MODEL_TYPE: "Regression" # Redshift estimation approach. Options: Classification, Regression
+  MODEL_TYPE: "Classification" # Redshift estimation approach. Options: Classification, Regression
   ImageEncoder_Weights: 'Path to pre-trained image encoder weights'  # Use pre-trained weights for the image subnetwork
   CatalogEncoder_Weights: 'Path to pre-trained catalog encoder weights'  # Use pre-trained weights for the catalog subnetwork

@@ -1,11 +1,10 @@
 # Photometric redshift estimation for emission line galaxies of DESI Legacy Imaging Surveys by CNN-MLP
 
-## Information
-This work is to apply deep learning method to combine multiband image and photometric data to improve redshift estimation performance of Emission Line Galaxies(ELG).
+Code for Wei et al. *"Photometric redshift estimation for emission line galaxies of DESI Legacy Imaging Surveys by CNN-MLP."* [arXiv:2505.24175 (2025)](https://arxiv.org/abs/2505.24175).
 
+![Schematic diagram of our model.](./figure/model.jpg)
 ---
 ## Repo Description
-Code for Experiment. 
 
 ！Dataset is not here due to the size limit.
 
@@ -52,6 +51,29 @@ mkdir weights
 and go to logs/log.txt to check log and go to weights/ to check model's weights.
 
 
+## Citation
+```
+@ARTICLE{2025arXiv250524175W,
+       author = {{Wei}, Shirui and {Li}, Changhua and {Zhang}, Yanxia and {Cui}, Chenzhou and {Tang}, Chao and {Zhang}, Jingyi and {Zhao}, Yongheng and {Wu}, Xuebing and {Tao}, Yihan and {Fan}, Dongwei and {Li}, Shanshan and {Xu}, Yunfei and {Huang}, Maoyuan and {Yang}, Xingyu and {Kang}, Zihan and {Shi}, Jinghang},
+        title = "{Photometric redshift estimation for emission line galaxies of DESI Legacy Imaging Surveys by CNN-MLP}",
+      journal = {arXiv e-prints},
+     keywords = {Instrumentation and Methods for Astrophysics, Astrophysics of Galaxies},
+         year = 2025,
+        month = may,
+          eid = {arXiv:2505.24175},
+        pages = {arXiv:2505.24175},
+          doi = {10.48550/arXiv.2505.24175},
+archivePrefix = {arXiv},
+       eprint = {2505.24175},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250524175W},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+```
+
+## Acknowledgement
+- Pasquet et al. 2019: [https://github.com/jpasquet/photoz](https://github.com/jpasquet/photoz)
 
 
 

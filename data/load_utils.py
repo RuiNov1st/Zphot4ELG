@@ -6,7 +6,7 @@ import os
 
 def load_data(img_path,label_path,data_type):
     """
-    载入数据
+    load data
     """
     images = np.load(img_path)
     labels = np.load(label_path)
@@ -26,7 +26,7 @@ def load_data(img_path,label_path,data_type):
 
 def load_catalog(catalog_path,colsname=['MAG_R']):
     df = pd.read_csv(catalog_path)
-    # 读取其中所需要的列：
+    # read the cols needed
     arr = df[colsname[0]].values
     arr = arr.reshape(-1,1)
     if len(colsname)>1:
@@ -120,7 +120,7 @@ def read_split_catalog(path,colsname=['MAG_R']):
 
 def read_config():
     """
-    读取配置
+    read configuration
     """
     with open("../config.yaml") as yaml_file:
         config = yaml.safe_load(yaml_file)
